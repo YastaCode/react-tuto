@@ -1,0 +1,52 @@
+.user-card {
+    border: 1px solid #666;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.user-card h2 {
+    margin-bottom: 20px;
+}
+.user-card-item {
+    background: #333;
+    border: 1px solid #555;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.2s ease-in-out; /* Ajout d'une transition pour l'effet de hover */
+}
+.user-card-item:hover {
+    transform: scale(1.02); /* Effet de zoom au survol */
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée au survol */
+}
+.user-avatar{
+    border: 1px solid #3498db;
+    border-radius: 100%;
+    padding: 1rem;
+    font-size: 4.5rem;
+    color: #3498db;
+    display: flex;
+    align-items: center;
+}
+.user-details{
+    flex-grow: 1;
+}
+.user-details h3 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+.user-details p{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: .9rem;
+}
+.user-details a{
+    color: #3498db;
+    text-decoration: none;
+}
+.user-details a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+}
