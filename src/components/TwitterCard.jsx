@@ -1,40 +1,37 @@
-import { useState } from "react";
-
-function TwitterCard({formatUserName,userImg,children,userName, initialFollowing}) {
-    const [isFollowing, setIsFollowing] = useState(initialFollowing);
-    console.log('[TwitterCard] with userName', userName);
-    // console.log(isFollowing);
-    // const addAt = (userName) => `@${userName}`;
-    const text = isFollowing ? 'following' : 'follow';
-    const btnClassName = isFollowing 
-        ? "tw-follow-card-btn isFollowing"
-        :"tw-follow-card-btn";
-
+import {useState} from 'react';
+function TwitterCard({children,formattedUserName,initialFollowing,srcImg}) {
     const handleClick = () => {
         setIsFollowing(!isFollowing);
     }
-
-    return (
-        <article className="tw-follow-card">
-          <header className="tw-follow-card-header">
-            <img 
-                className="tw-follow-card-avatar"
-                src={`https://cdn-icons-png.flaticon.com/${userImg}.png`} 
-                alt={`${userImg}-image`} 
-            />
-            <div className="tw-follow-card-info">
-              <strong>{children}</strong>
-              <span>{formatUserName(userName)}</span>
-              {/* <span>{formatUserName}</span> */}
-              {/* <span>{addAt(userName)}</span> */}
+    const [isFollowing, setIsFollowing] = useState(initialFollowing)
+    const  text = (isFollowing) 
+        ? "following"
+        : "follow"
+    const following = (isFollowing)
+        ? "is-following"
+        : "tw-followCard-btn"
+    return(
+        <article className="tw-followCard">
+            <div className="tw-followCard-header">
+                <img 
+                    src={`https://cdn-icons-png.flaticon.com/${srcImg}.png`}      
+                    alt={`${srcImg} image`}
+                />
+                <div className="tw-followCard-info">
+                    <strong>{children}</strong>
+                    <span>{formattedUserName}</span>
+                </div>
             </div>
-          </header>
-          <button 
-            className={btnClassName}
-            onClick={handleClick}
-          >
-            {text}
-          </button>
+            <div className="tw-followCard-footer">
+                <button 
+                    type="button"
+                    className={`tw-followCard-btn  ${following}`}
+                    onClick={handleClick}
+                >
+                    <span className="is-follow">{text}</span>
+                    <span className="not-follow">do not follow</span>
+                </button>
+            </div>
         </article>
     )
 }
